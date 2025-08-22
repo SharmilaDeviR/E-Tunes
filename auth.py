@@ -8,7 +8,6 @@ import os, time, random, smtplib, ssl
 from email.mime.text import MIMEText
 from typing import Optional, Dict
 import bcrypt
-from dotenv import load_dotenv
 
 from db import (
     init_db,
@@ -17,9 +16,6 @@ from db import (
     update_user_password,
     log_otp,
 )
-
-# Load environment variables from .env
-load_dotenv()
 
 # In-memory OTP store: { email: {"otp": "123456", "exp": 1690000000.0, "purpose": "signup"} }
 _OTP_CACHE: Dict[str, Dict[str, object]] = {}
